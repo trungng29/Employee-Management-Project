@@ -6,33 +6,33 @@ import java.text.SimpleDateFormat;
 public class DuAn {    
     static Scanner in = new Scanner(System.in); //biến scanner để nhập giữ liệu từ bàn phím
     static int cnt = 1; //Biến đếm tĩnh, dùng để tạo mã dự án (MaDA) tự động tăng dần.
-    private String MaDA, TenDA, NgayThucHien;  //các thuộc tính: mã dự án, tên dự án, ngày thực hiện
+    private String maDA, tenDA, ngayThucHien;  //các thuộc tính: mã dự án, tên dự án, ngày thực hiện
     
     //Constructor không tham số: khởi tạo các thuộc tính bán đầu là rỗng
     public DuAn(){
-        this.MaDA = this.TenDA = this.NgayThucHien = "";
+        this.maDA = this.tenDA = this.ngayThucHien = "";
     }
     
     //Constructor có tham số, khởi tạo mã dự án tăng dần theo mẫu, tên dự án và ngày thực hiện theo dữ liệu vào
     public DuAn(String tenDa, String ngayThucHien){
-        this.MaDA = String.format("DA%02d", cnt++);  //mã dự án tự động tăng dần
+        this.maDA = String.format("DA%02d", cnt++);  //mã dự án tự động tăng dần
         this.setTenDA(tenDa);     //tên dự án được chuẩn hóa
         this.setNgayThucHien(ngayThucHien);  //dữ liệu ngày tháng được kiểm tra, đảm bảo chuẩn dd/mm/yyyy
     }
     
     //phương thức trả về mã dự án
     public String getMaDA(){ 
-        return this.MaDA;
+        return this.maDA;
     }
     
     //phương thức thiết lập tên dự án
     public void setTenDA(String newName){ 
-        this.TenDA = formatName(newName);
+        this.tenDA = formatName(newName);
     }
     
     //phương thức trả về tên dự án
     public String getTenDA(){
-        return this.TenDA;
+        return this.tenDA;
     }
     
     //phương thức thiết lập ngày thực hiện
@@ -41,12 +41,12 @@ public class DuAn {
             System.out.println("Invalid date format! Please enter again:");
             newDate = in.next();
         }
-        this.NgayThucHien = newDate; //thiết lập với những dữ liệu đã đạt chuẩn
+        this.ngayThucHien = newDate; //thiết lập với những dữ liệu đã đạt chuẩn
     }
     
     //phương thức trả về ngày thực hiện
     public String getNgayThucHien(){ 
-        return this.NgayThucHien;
+        return this.ngayThucHien;
     }
     
     //phương thức chuẩn hóa tên dự án
@@ -79,6 +79,6 @@ public class DuAn {
     //phương thức trả về thông tin của dự án theo dạng chuỗi
     @Override
     public String toString(){
-        return this.MaDA+" "+this.TenDA+" "+this.NgayThucHien;
+        return this.maDA+" "+this.tenDA+" "+this.ngayThucHien;
     }
 }
